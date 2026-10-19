@@ -5,13 +5,17 @@ foreach ($notes  as $nom => $note) {
   echo "$nom : $note <br>";
 }
 
-$moyenne=array_sum($notes)/count($notes);
-echo " la moyenne est $moyenne <br>";
-
 $admis=array_filter($notes, fn($note) => $note >=10);
 print_r($admis);
 
 echo "l'ordre de tableau est :";
 $tri=sort($notes);
-print_r($tri);
+print_r($tri) ;
+echo"<br>";
+
+function moyenne(array $notes):float
+{
+    return array_sum($notes)/count($notes);
+}
+print_r(moyenne($notes));
 ?>
