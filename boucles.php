@@ -1,21 +1,34 @@
 
-    <?php
-$notes = ["mohamed" =>14, "sami" => 9,"amal"=>17,"yassine"=>8,"ines"=>12];
-foreach ($notes  as $nom => $note) {
-  echo "$nom : $note <br>";
+   <?php
+
+$notes = ["Mohamed" => 14, "Sami" => 9, "Amel" => 17,
+"Yassine" => 8, "Ines" => 12];
+
+foreach ($notes as $nom_etu => $note) {
+    echo "$nom_etu : $note<br>";
 }
 
-$admis=array_filter($notes, fn($note) => $note >=10);
-print_r($admis);
-
-echo "l'ordre de tableau est :";
-$tri=sort($notes);
-print_r($tri) ;
-echo"<br>";
-
-function moyenne(array $notes):float
-{
-    return array_sum($notes)/count($notes);
+function moyenne(array $notes):float{
+    return array_sum($notes) / count($notes);
 }
 print_r(moyenne($notes));
+
+function admis(array $notes):array{
+    return array_filter($notes, fn($note) => $note >= 10);
+}
+print_r(admis($notes));
+
+function sorting(array $notes):array{
+    sort($notes);
+    return $notes;
+}
+
+print_r(sorting($notes));
+
+function plus(array $notes):array{
+    return array_map(fn($note) => $note + 1, $notes);
+}
+
+print_r(plus($notes));
+
 ?>
